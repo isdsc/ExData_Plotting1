@@ -12,3 +12,8 @@ col_types <- c("character", "character", "numeric", "numeric", "numeric",
 full_data <- read.csv(data_file, sep = ";", na.strings = "?", colClasses =
                       col_types, nrows = 2.1e6, stringsAsFactors = FALSE,
                       comment.char = "" )
+
+# Select the study period, since we haven't converted the dates into a date
+# class, use regex to allow for slight variations in the date string
+study_data_select <- grepl("^0?[12]/0?2/2007", full_data$Date)
+study_data <- full_data[study_data_select, ]
