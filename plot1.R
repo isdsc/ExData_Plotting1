@@ -17,3 +17,18 @@ full_data <- read.csv(data_file, sep = ";", na.strings = "?", colClasses =
 # class, use regex to allow for slight variations in the date string
 study_data_select <- grepl("^0?[12]/0?2/2007", full_data$Date)
 study_data <- full_data[study_data_select, ]
+
+# Set the output device to the destination file in PNG format
+png(filename = "./plot1.png", width = 480, height = 480, bg = "transparent")
+
+# Build the histogram
+hist(
+  study_data$Global_active_power,
+  freq = TRUE,
+  main = "Global Active Power",
+  xlab = "Global Active Power (kilowatts)",
+  col = "red"
+)
+
+# Close the output device
+dev.off()
