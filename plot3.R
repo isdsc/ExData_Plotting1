@@ -36,7 +36,10 @@ plot(
 
 lines(study_data$timestamps, study_data$Sub_metering_2, col = "red")
 lines(study_data$timestamps, study_data$Sub_metering_3, col = "blue")
-legend("topright", col = c("black", "red", "blue"), legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), lty = 1)
+legend("topright",
+	   col = c("black", "red", "blue"),
+       legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+       lty = 1)
 
 # Close the output device
 dev.off()
